@@ -1,0 +1,136 @@
+1
+00:00:00,000 --> 00:00:02,119
+Ceci est une histoire vraie.
+
+2
+00:00:02,759 --> 00:00:03,860
+Dans un petit village de
+
+3
+00:00:03,860 --> 00:00:04,960
+Provence,
+
+4
+00:00:05,320 --> 00:00:06,866
+une étrange série de disparitions
+
+5
+00:00:06,866 --> 00:00:08,413
+a commencé à troubler les
+
+6
+00:00:08,413 --> 00:00:09,960
+habitants.
+
+7
+00:00:10,600 --> 00:00:11,960
+Depuis le mois de juin,
+
+8
+00:00:12,399 --> 00:00:14,159
+quatre personnes ont disparu sans
+
+9
+00:00:14,159 --> 00:00:15,920
+laisser de traces,
+
+10
+00:00:16,360 --> 00:00:17,600
+laissant derrière elles des proches
+
+11
+00:00:17,600 --> 00:00:18,840
+désemparés
+
+12
+00:00:19,399 --> 00:00:21,399
+et des rumeurs inquiétantes.
+
+13
+00:00:22,079 --> 00:00:23,279
+Les recherches menées par la
+
+14
+00:00:23,279 --> 00:00:24,479
+gendarmerie
+
+15
+00:00:24,799 --> 00:00:27,000
+n'ont abouti à rien d'inconnu.
+
+16
+00:00:27,639 --> 00:00:29,079
+Les villageois évoquent un vieux
+
+17
+00:00:29,079 --> 00:00:30,520
+mythe local,
+
+18
+00:00:30,920 --> 00:00:32,380
+celui d'une entité qui hanterait
+
+19
+00:00:32,380 --> 00:00:33,840
+la forêt voisine,
+
+20
+00:00:34,200 --> 00:00:36,599
+mais peu ose s'y aventurer.
+
+21
+00:00:37,159 --> 00:00:38,500
+Une enquête journalistique a été
+
+22
+00:00:38,500 --> 00:00:39,840
+lancée,
+
+23
+00:00:40,279 --> 00:00:42,880
+révélant des secrets profondément enfouis.
+
+24
+00:00:43,319 --> 00:00:45,240
+Mais les mystères persistent.
+
+25
+00:00:45,720 --> 00:00:46,479
+Chaque nuit,
+
+26
+00:00:46,840 --> 00:00:48,620
+des bruits étranges résonnent dans
+
+27
+00:00:48,620 --> 00:00:50,400
+les ruelles sombres,
+
+28
+00:00:50,840 --> 00:00:53,120
+comme si le village lui-même
+
+29
+00:00:53,120 --> 00:00:55,400
+avait une histoire à raconter.
+
+30
+00:00:55,919 --> 00:00:57,319
+Alors que le temps passe,
+
+31
+00:00:57,720 --> 00:00:59,080
+l'angoisse grandit
+
+32
+00:00:59,520 --> 00:01:01,240
+et tous se demandent
+
+33
+00:01:01,639 --> 00:01:02,939
+qui sera le prochain à
+
+34
+00:01:02,939 --> 00:01:04,239
+disparaître.
+

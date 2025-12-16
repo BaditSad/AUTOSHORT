@@ -1,0 +1,26 @@
+APIs utilisées dans le pipeline
+
+1. OpenAI API
+- Usage : génération d’histoire (GPT), génération d’images (DALL·E 3), transcription audio (Whisper)
+- Docs : https://platform.openai.com/docs
+- Pricing : https://platform.openai.com/settings/organization/billing/overview
+
+2. ElevenLabs API
+- Usage : synthèse vocale (text-to-speech)
+- Docs : https://elevenlabs.io/docs
+- Pricing : https://elevenlabs.io/app/subscription
+
+3. Runway ML API
+- Usage : génération vidéo (image → vidéo, modèle gen4_turbo)
+- Docs : https://docs.runwayml.com
+- Pricing : https://dev.runwayml.com/organization/19eeec47-66a3-46e1-b541-5c1081cfb84d/billing
+
+4. Cloudflare R2 (S3 compatible)
+- Usage : stockage et diffusion publique des fichiers intermédiaires
+- Docs : https://developers.cloudflare.com/r2
+- Pricing : https://dash.cloudflare.com/020c1794f0ec1b7c420741a953e31d4b/home/domains
+
+Libs locales (gratuites / open source) :
+- ffmpeg : traitement vidéo (concat, sous-titres, durée)
+- pydub : gestion audio
+- boto3 : client S3 pour R2
