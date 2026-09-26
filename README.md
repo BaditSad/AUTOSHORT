@@ -1,6 +1,8 @@
 <div align="center">
+  <img src=".github/assets/banner.png" alt="AUTOSHORT banner" width="100%" />
+
   <h1>AUTOSHORT</h1>
-  <p>Pipeline Python qui génère automatiquement des vidéos verticales d'histoires d'horreur, du script à la vidéo finale, en enchaînant plusieurs API d'IA.</p>
+  <p>Python pipeline that automatically generates vertical horror-story videos, from script to final video, by chaining several AI APIs.</p>
 
 <p>
   <img src="https://img.shields.io/github/last-commit/BaditSad/AUTOSHORT" alt="last update" />
@@ -10,66 +12,76 @@
 
 <br />
 
-## Table des matières
+## :notebook_with_decorative_cover: Table of Contents
 
-- [A propos](#a-propos)
-- [Stack technique](#stack-technique)
-- [Pipeline](#pipeline)
-- [Variables d'environnement](#variables-denvironnement)
-- [Installation](#installation)
-- [Utilisation](#utilisation)
-- [Dépôts liés](#depots-lies)
-- [Contact](#contact)
+- [About](#star2-about)
+  * [Screenshots](#camera-screenshots)
+- [Tech Stack](#space_invader-tech-stack)
+- [Pipeline](#gear-pipeline)
+- [Environment Variables](#key-environment-variables)
+- [Installation](#toolbox-installation)
+- [Usage](#eyes-usage)
+- [Related Repositories](#link-related-repositories)
+- [Contact](#handshake-contact)
 
-## A propos
+## :star2: About
 
-AUTOSHORT est un script qui produit, de bout en bout, des vidéos verticales d'histoires d'horreur racontées à la première personne. A partir d'un simple lancement, il génère le texte de l'histoire, l'illustre, l'anime, la voix, la sous-titre puis assemble le tout en un fichier vidéo prêt à publier.
+AUTOSHORT is a script that produces, end to end, vertical videos of horror stories told in the first person.
+From a single run, it generates the story text, illustrates it, animates it, voices it, subtitles it, then
+assembles everything into a video file ready to publish.
 
-Le dossier `horror` contient le script principal (`horror_fr.py`) ainsi qu'un script annexe (`test.py`) qui automatise, via Selenium, la génération d'une image sur un site tiers, utilisé ponctuellement en dehors du pipeline principal.
+The `horror` folder holds the main script (`horror_fr.py`) plus a side script (`test.py`) that automates,
+through Selenium, image generation on a third-party site, used occasionally outside the main pipeline.
 
-## Stack technique
+### :camera: Screenshots
+
+<div align="center">
+  <img src=".github/assets/banner.png" alt="AUTOSHORT sample output" width="100%" />
+</div>
+
+## :space_invader: Tech Stack
 
 <details>
-  <summary>IA générative</summary>
+  <summary>Generative AI</summary>
   <ul>
-    <li><a href="https://platform.openai.com/docs">OpenAI GPT</a> : génération de l'histoire et des métadonnées</li>
-    <li><a href="https://platform.openai.com/docs">OpenAI DALL-E 3</a> : génération de l'image de la scène</li>
-    <li><a href="https://platform.openai.com/docs">OpenAI Whisper</a> : transcription audio pour les sous-titres</li>
-    <li><a href="https://elevenlabs.io/docs">ElevenLabs</a> : synthèse vocale de la narration</li>
-    <li><a href="https://docs.runwayml.com">Runway ML (gen4_turbo)</a> : génération vidéo image vers vidéo</li>
+    <li><a href="https://platform.openai.com/docs">OpenAI GPT</a>: story and metadata generation</li>
+    <li><a href="https://platform.openai.com/docs">OpenAI DALL-E 3</a>: scene image generation</li>
+    <li><a href="https://platform.openai.com/docs">OpenAI Whisper</a>: audio transcription for subtitles</li>
+    <li><a href="https://elevenlabs.io/docs">ElevenLabs</a>: narration voice synthesis</li>
+    <li><a href="https://docs.runwayml.com">Runway ML (gen4_turbo)</a>: image-to-video generation</li>
   </ul>
 </details>
 
 <details>
-  <summary>Traitement média et infra</summary>
+  <summary>Media processing and infra</summary>
   <ul>
-    <li><a href="https://ffmpeg.org/">ffmpeg</a> : concaténation, sous-titrage, ajustement de durée</li>
-    <li><a href="https://github.com/jiaaro/pydub">pydub</a> : mixage narration et musique</li>
-    <li><a href="https://developers.cloudflare.com/r2">Cloudflare R2</a> (via boto3) : stockage des fichiers intermédiaires</li>
-    <li>Pillow : génération de la miniature</li>
+    <li><a href="https://ffmpeg.org/">ffmpeg</a>: concatenation, subtitling, duration adjustment</li>
+    <li><a href="https://github.com/jiaaro/pydub">pydub</a>: narration and music mixing</li>
+    <li><a href="https://developers.cloudflare.com/r2">Cloudflare R2</a> (via boto3): intermediate file storage</li>
+    <li>Pillow: thumbnail generation</li>
   </ul>
 </details>
 
-## Pipeline
+## :gear: Pipeline
 
-Les étapes réellement implémentées dans `horror_fr.py`, dans l'ordre :
+The steps actually implemented in `horror_fr.py`, in order:
 
-1. Génération de l'histoire et des métadonnées (GPT)
-2. Génération de l'image de la scène (DALL-E 3)
-3. Upload de l'image sur Cloudflare R2
-4. Génération de la vidéo à partir de l'image (Runway, image vers vidéo)
-5. Synthèse vocale de la narration (ElevenLabs)
-6. Transcription de l'audio pour produire les sous-titres (Whisper)
-7. Préparation et mixage de la musique de fond avec la narration
-8. Concaténation des vidéos de scène
-9. Assemblage final (vidéo, voix, sous-titres)
-10. Génération de la miniature
+1. Story and metadata generation (GPT)
+2. Scene image generation (DALL-E 3)
+3. Image upload to Cloudflare R2
+4. Video generation from the image (Runway, image to video)
+5. Narration voice synthesis (ElevenLabs)
+6. Audio transcription to produce subtitles (Whisper)
+7. Background music preparation and mixing with narration
+8. Scene video concatenation
+9. Final assembly (video, voice, subtitles)
+10. Thumbnail generation
 
-Les fichiers produits à chaque étape sont conservés dans `horror/renders`.
+Files produced at each step are kept in `horror/renders`.
 
-## Variables d'environnement
+## :key: Environment Variables
 
-Le script lit un fichier `.env` placé à la racine du dossier `horror`. Clés attendues :
+The script reads a `.env` file placed at the root of the `horror` folder. Expected keys:
 
 `OPENAI_API_KEY`
 `ELEVEN_LABS_API_KEY`
@@ -81,27 +93,31 @@ Le script lit un fichier `.env` placé à la racine du dossier `horror`. Clés a
 `R2_ENDPOINT`
 `R2_PUBLIC_URL`
 
-## Installation
+## :toolbox: Installation
 
-Prérequis : Python 3, ffmpeg installé sur la machine.
+Prerequisites: Python 3, ffmpeg installed on the machine.
 
 ```bash
 pip install openai elevenlabs runwayml boto3 pillow pydub ffmpeg-python python-dotenv requests
 ```
 
-## Utilisation
+## :eyes: Usage
 
 ```bash
 cd horror
 python horror_fr.py
 ```
 
-Le script tourne sans interaction et produit `final_horror_story.mp4` ainsi que la miniature associée dans `horror/renders`.
+The script runs without interaction and produces `final_horror_story.mp4` along with its thumbnail in
+`horror/renders`.
 
-## Dépôts liés
+## :link: Related Repositories
 
-Ce projet est une version antérieure et centrée sur un thème unique (horreur) du pipeline de génération vidéo par IA. Une version plus aboutie, orientée automatisation multi-comptes et publication TikTok, existe dans [TRADSHORT](https://github.com/BaditSad/TRADSHORT), qui reprend une logique similaire (GPT, ElevenLabs, ffmpeg) mais dans une architecture full-stack avec file d'attente et publication automatisée.
+This project is an earlier, single-theme (horror) version of the AI video generation pipeline. A more
+advanced version, focused on multi-account automation and TikTok publishing, lives in
+[TRADSHORT](https://github.com/BaditSad/TRADSHORT), which reuses a similar logic (GPT, ElevenLabs, ffmpeg) but
+within a full-stack architecture with a job queue and automated publishing.
 
-## Contact
+## :handshake: Contact
 
 Brieuc Dumortier, [LinkedIn](https://www.linkedin.com/in/dumortier-brieuc/), dumortier.contact@gmail.com
